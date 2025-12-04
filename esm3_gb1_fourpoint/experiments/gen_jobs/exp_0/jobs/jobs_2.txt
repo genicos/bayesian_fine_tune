@@ -1,0 +1,180 @@
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 500 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 145 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 97 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 123 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 43 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 327 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 146 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 411 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.001 --job_id 304 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 128 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 105 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 7 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 6 --lora_alpha 16 --learning_rate 0.01 --job_id 312 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 186 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 286 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 406 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 109 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.01 --job_id 224 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 10 --lora_alpha 8 --learning_rate 0.001 --job_id 204 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 6 --lora_alpha 8 --learning_rate 0.1 --job_id 71 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 2 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.1 --job_id 247 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 16 --learning_rate 1 --job_id 351 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 8 --lora_alpha 8 --learning_rate 1 --job_id 173 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 133 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 397 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 10 --lora_alpha 8 --learning_rate 0.001 --job_id 210 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 339 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.0001 --job_id 361 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 52 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 147 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 330 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.001 --job_id 205 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 379 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 129 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 16 --learning_rate 1 --job_id 347 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 10 --lora_alpha 16 --learning_rate 1 --job_id 525 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 102 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 10 --lora_alpha 16 --learning_rate 1 --job_id 536 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 45 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.01 --job_id 309 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 413 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 8 --lora_alpha 16 --learning_rate 0.0001 --job_id 372 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 125 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 482 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 418 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 180 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.01 --job_id 319 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.1 --job_id 55 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 104 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 10 --lora_alpha 8 --learning_rate 1 --job_id 264 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.1 --job_id 245 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 94 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 47 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 390 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 472 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 490 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 447 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.1 --job_id 58 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 113 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 85 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 336 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 110 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 287 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 393 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 193 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 142 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 8 --learning_rate 1 --job_id 262 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 441 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 453 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 485 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.1 --job_id 63 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 195 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 151 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 92 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 15 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.01 --job_id 321 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 465 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 324 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 278 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 429 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 76 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 117 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 159 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 137 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 478 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 438 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 461 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 196 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 392 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 455 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 470 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.001 --job_id 293 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 419 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 501 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 10 --lora_alpha 16 --learning_rate 1 --job_id 538 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 153 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 191 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 44 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 149 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 460 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 10 --lora_alpha 16 --learning_rate 0.1 --job_id 507 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 42 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 275 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.001 --job_id 21 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 477 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 457 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 11 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 10 --lora_alpha 16 --learning_rate 1 --job_id 535 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 423 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.1 --job_id 251 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 10 --lora_alpha 8 --learning_rate 1 --job_id 268 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 106 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.001 --job_id 292 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 407 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.1 --job_id 521 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 279 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 10 --lora_alpha 8 --learning_rate 0.01 --job_id 220 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 8 --lora_alpha 16 --learning_rate 0.01 --job_id 404 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.001 --job_id 23 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 445 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 5 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 8 --lora_alpha 8 --learning_rate 1 --job_id 170 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 122 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 75 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 6 --lora_alpha 16 --learning_rate 0.001 --job_id 300 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 459 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 10 --lora_alpha 8 --learning_rate 1 --job_id 261 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 79 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 73 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 6 --lora_alpha 16 --learning_rate 0.01 --job_id 313 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.1 --job_id 519 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 8 --lora_alpha 8 --learning_rate 0.001 --job_id 112 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 10 --lora_alpha 8 --learning_rate 1 --job_id 266 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 8 --lora_alpha 8 --learning_rate 1 --job_id 167 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 86 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 96 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 391 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 384 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 10 --lora_alpha 16 --learning_rate 0.1 --job_id 518 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 126 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 496 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 329 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 494 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.001 --job_id 27 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 8 --learning_rate 1 --job_id 177 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 16 --learning_rate 0.0001 --job_id 273 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 10 --lora_alpha 8 --learning_rate 0.01 --job_id 219 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 16 --learning_rate 1 --job_id 345 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 4 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 444 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.0001 --job_id 364 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 190 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 197 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.01 --job_id 40 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 6 --lora_alpha 8 --learning_rate 0.1 --job_id 69 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 3 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 4 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 428 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 188 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 78 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.1 --job_id 242 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 8 --lora_alpha 8 --learning_rate 1 --job_id 162 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.01 --job_id 223 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 2 --r 10 --lora_alpha 16 --learning_rate 0.001 --job_id 474 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 8 --learning_rate 0.0001 --job_id 9 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 2 --r 6 --lora_alpha 8 --learning_rate 1 --job_id 81 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.001 --job_id 383 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 450 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 6 --lora_alpha 16 --learning_rate 1 --job_id 352 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 1 --r 10 --lora_alpha 8 --learning_rate 0.0001 --job_id 181 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.01 --job_id 497 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 10 --lora_alpha 8 --learning_rate 0.1 --job_id 244 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 2 --r 6 --lora_alpha 16 --learning_rate 0.001 --job_id 298 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.1 --B 2 --r 6 --lora_alpha 16 --learning_rate 1 --job_id 349 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 8 --lora_alpha 8 --learning_rate 0.1 --job_id 152 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 3 --B 4 --r 8 --lora_alpha 16 --learning_rate 1 --job_id 448 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 10 --B 4 --r 6 --lora_alpha 16 --learning_rate 0.1 --job_id 341 --save_results --gpu_id 2
+python3 main.py --loss_type reward_weighted_SFT --B 1 --r 8 --lora_alpha 8 --learning_rate 0.0001 --job_id 90 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 0.3 --B 2 --r 10 --lora_alpha 16 --learning_rate 0.0001 --job_id 458 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 4 --r 8 --lora_alpha 8 --learning_rate 0.01 --job_id 141 --save_results --gpu_id 2
+python3 main.py --loss_type bayesian --alpha 1 --B 1 --r 8 --lora_alpha 16 --learning_rate 0.1 --job_id 417 --save_results --gpu_id 2
