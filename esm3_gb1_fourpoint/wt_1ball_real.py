@@ -18,6 +18,7 @@ parser.add_argument("--r", type=int, required=False, default=8)
 parser.add_argument("--lora_alpha", type=int, required=False, default=16)
 parser.add_argument("--random_seed", type=int, required=False, default=0)
 parser.add_argument("--job_id", type=int, required=False, default=-1)
+parser.add_argument("--rescale_loss", action="store_true")
 parser.add_argument("--save_results", action="store_true")
 
 args = parser.parse_args()
@@ -66,7 +67,7 @@ subset = wt_1_ball
 
 
 if args.loss_type == "bayesian" or args.loss_type == "reward_weighted_SFT":
-    train_loss_history, validation_loss_history = weighted_fine_tuning_train(model, assay_indices=subset, alpha=args.alpha, B=args.B, epochs=args.epochs, learning_rate=args.learning_rate, batch_size=args.batch_size, train_proportion=args.train_proportion, random_seed=args.random_seed, loss_type=args.loss_type, patience=args.patience)
+    train_loss_history, validation_loss_history = weighted_fine_tuning_train(model, assay_indices=subset, alpha=args.alpha, B=args.B, epochs=args.epochs, learning_rate=args.learning_rate, batch_size=args.batch_size, train_proportion=args.train_proportion, random_seed=args.random_seed, loss_type=args.loss_type, patience=args.patience, rescale_loss=args.rescale_loss)
     
 
 

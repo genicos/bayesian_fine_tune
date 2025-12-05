@@ -35,15 +35,18 @@ def masked_weighted_ce_loss(logits, targets, seq_weights, mask):
 
 
 
-def bayesian_fine_tuning_prep(assay_indices, alpha=1, B=1, generator=None):
+def bayesian_fine_tuning_prep(assay_indices, alpha=1, B=1, generator=None, rescale_loss=False, threshold=False):
 
     subset_mutants = all_mutants[assay_indices].clone()
-    subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
 
     logged_target_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masked_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masks       = torch.zeros((B*4*subset_mutants.size(0), subset_mutants.size(1)), dtype=torch.bool)
-    logged_weights     = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
+    if threshold:
+        logged_weights = torch.repeat_interleave(subset_assay_values >= alpha, repeats=B*4, dim=0)
+    else:
+        subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
+        logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
 
     for i in range(subset_mutants.size(0)):
         for b in range(B):
@@ -57,7 +60,8 @@ def bayesian_fine_tuning_prep(assay_indices, alpha=1, B=1, generator=None):
                 masked_seq[four_positions[o]] = mask_id
                 mask_code[o] = 0
                 beta *= torch.softmax(masked_logits[masked_map[mask_code[0], mask_code[1], mask_code[2], mask_code[3]]][o], dim=-1)[subset_mutants[i][four_positions[o]+1]]
-                beta *= 20 # prevent vanishing beta
+                if rescale_loss:
+                    beta *= 20 # prevent vanishing beta
 
                 for m in range(4):
                     if mask_code[m] == 0:
@@ -69,15 +73,18 @@ def bayesian_fine_tuning_prep(assay_indices, alpha=1, B=1, generator=None):
     return logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks
 
 
-def reward_weighted_SFT_prep(assay_indices, alpha=1, B=1, generator=None):
+def reward_weighted_SFT_prep(assay_indices, alpha=1, B=1, generator=None, threshold=False):
 
     subset_mutants = all_mutants[assay_indices].clone()
-    subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
 
     logged_target_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masked_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masks       = torch.zeros((B*4*subset_mutants.size(0), subset_mutants.size(1)), dtype=torch.bool)
-    logged_weights     = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
+    if threshold:
+        logged_weights = torch.repeat_interleave(subset_assay_values >= alpha, repeats=B*4, dim=0)
+    else:
+        subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
+        logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
 
     for i in range(subset_mutants.size(0)):
         for b in range(B):
@@ -102,14 +109,14 @@ def reward_weighted_SFT_prep(assay_indices, alpha=1, B=1, generator=None):
 
 
 
-def weighted_fine_tuning_train(model, assay_indices, alpha=1, B=1, epochs=10, learning_rate=1e-2, batch_size=16, train_proportion=0.8,random_seed=0, loss_type="bayesian", patience=10):
+def weighted_fine_tuning_train(model, assay_indices, alpha=1, B=1, epochs=10, learning_rate=1e-2, batch_size=16, train_proportion=0.8,random_seed=0, loss_type="bayesian", patience=10, rescale_loss=False, threshold=False):
 
     g = torch.Generator()
     g.manual_seed(random_seed)
 
     if loss_type == "bayesian":
         print("Preparing Bayesian fine-tuning data")
-        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = bayesian_fine_tuning_prep(assay_indices, alpha, B, g)
+        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = bayesian_fine_tuning_prep(assay_indices, alpha, B, g, rescale_loss)
     elif loss_type == "reward_weighted_SFT":
         print("Preparing Reward-weighted SFT fine-tuning data")
         logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = reward_weighted_SFT_prep(assay_indices, alpha, B, g)
