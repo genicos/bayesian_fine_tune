@@ -1,2 +1,4 @@
 Experiments 0 to 3 ran wt_1ball_real.py, but back when it was called main.py
     and rescale_loss was always true
+
+Exp5 had real valued weights

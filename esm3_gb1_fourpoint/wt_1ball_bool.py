@@ -28,7 +28,7 @@ args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu_id)
 
 
-if args.job_id != -1 and os.path.exists(f"results/results_{args.job_id}.pkl"):
+if args.save_results and ( (args.job_id != -1 and os.path.exists(f"results/results_{args.job_id}.pkl")) or (args.result_file != "" and os.path.exists(args.result_file))):
     print("Results already exist, skipping")
     exit()
 
@@ -82,17 +82,26 @@ if args.loss_type == "bayesian" or args.loss_type == "reward_weighted_SFT":
     
 
 
-generated_samples = generate_N_mutations(model, temp=1, N=1000)
+generated_samples = generate_N_mutations(model, temp=1, N=100)
 results = evaluate_samples(subset, generated_samples)
 
+sample_assay_values = []
 assays_above_threshold = []
+
 for code in generated_samples:
     index = mutations_to_index[code[0], code[1], code[2], code[3]]
-    if index != -1 and assay_values[index] >= args.alpha:
-        assays_above_threshold.append(assay_values[index])
+    if index != -1:
+        sample_assay_values.append(assay_values[index])
+        if assay_values[index] >= args.alpha:
+            assays_above_threshold.append(assay_values[index])
+
+print(len(sample_assay_values))
+print(len(assays_above_threshold))
+
+results["sample_assay_values"] = torch.tensor(sample_assay_values)
+results["assays_above_threshold"] = torch.tensor(assays_above_threshold)
 
 print(f"Number of assays above threshold: {len(assays_above_threshold)}")
-print(f"Average assay value above threshold: {sum(assays_above_threshold) / len(assays_above_threshold)}")
 
 if args.save_results:
     save_object = {

@@ -43,10 +43,11 @@ def bayesian_fine_tuning_prep(assay_indices, alpha=1, B=1, generator=None, resca
     logged_masked_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masks       = torch.zeros((B*4*subset_mutants.size(0), subset_mutants.size(1)), dtype=torch.bool)
     if threshold:
-        logged_weights = torch.repeat_interleave(subset_assay_values >= alpha, repeats=B*4, dim=0)
+        subset_assay_values = (assay_values[assay_indices].clone() >= alpha).float()
     else:
         subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
-        logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
+
+    logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
 
     for i in range(subset_mutants.size(0)):
         for b in range(B):
@@ -81,11 +82,12 @@ def reward_weighted_SFT_prep(assay_indices, alpha=1, B=1, generator=None, thresh
     logged_masked_seqs = torch.repeat_interleave(subset_mutants, repeats=B*4, dim=0)
     logged_masks       = torch.zeros((B*4*subset_mutants.size(0), subset_mutants.size(1)), dtype=torch.bool)
     if threshold:
-        logged_weights = torch.repeat_interleave(subset_assay_values >= alpha, repeats=B*4, dim=0)
+        subset_assay_values = (assay_values[assay_indices].clone() >= alpha).float()
     else:
         subset_assay_values = torch.exp(assay_values[assay_indices].clone() / alpha)
-        logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
 
+    logged_weights = torch.repeat_interleave(subset_assay_values, repeats=B*4, dim=0)
+    
     for i in range(subset_mutants.size(0)):
         for b in range(B):
             random_permutation = torch.randperm(4, generator=generator)
@@ -116,10 +118,10 @@ def weighted_fine_tuning_train(model, assay_indices, alpha=1, B=1, epochs=10, le
 
     if loss_type == "bayesian":
         print("Preparing Bayesian fine-tuning data")
-        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = bayesian_fine_tuning_prep(assay_indices, alpha, B, g, rescale_loss)
+        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = bayesian_fine_tuning_prep(assay_indices, alpha, B, g, rescale_loss, threshold)
     elif loss_type == "reward_weighted_SFT":
         print("Preparing Reward-weighted SFT fine-tuning data")
-        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = reward_weighted_SFT_prep(assay_indices, alpha, B, g)
+        logged_masked_seqs, logged_weights, logged_target_seqs, logged_masks = reward_weighted_SFT_prep(assay_indices, alpha, B, g, threshold)
     else:
         raise ValueError(f"Invalid loss type: {loss_type}")
 
