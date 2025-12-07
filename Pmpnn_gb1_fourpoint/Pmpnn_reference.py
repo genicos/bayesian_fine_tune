@@ -92,7 +92,12 @@ X, S, mask, lengths, chain_M, chain_encoding_all, chain_list_list, visible_list_
 seq = "LTDEELVTMSVRELNQHLRGLSKEEIIQLKQRRRTLKNRGY" # MAFG_MOUSE
 seq_tensor = torch.tensor([alphabet_dict[AA] for AA in seq], device=device)[None,:].repeat(X.shape[0], 1)
 
-
+print(X)
+print(mask)
+print(chain_M)
+print(chain_M_pos)
+print(residue_idx)
+print(chain_encoding_all)
 
 decoding_order = torch.arange(len(seq), device=device).unsqueeze(0)
 
@@ -102,5 +107,16 @@ for i in range(len(seq_tensor[0])):
     A_score += log_probs[0,i,seq_tensor[0,i]]
 A_score /= len(seq_tensor[0])
 
-print(A_score.item())
 
+loss, loss_av = loss_nll(seq_tensor, log_probs, mask)
+print(loss_av.item())
+
+loss_av.backward()
+
+print("fine")
+exit()
+
+# Confirm gradients exist in LoRA layers
+for name, param in model.named_parameters():
+    if "lora_" in name and param.grad is not None:
+        print("GRAD OK:", name, param.grad.norm().item())
