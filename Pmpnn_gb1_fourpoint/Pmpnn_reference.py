@@ -21,6 +21,14 @@ from peft import LoraConfig, get_peft_model
 import attr
 
 
+random.seed(0)
+np.random.seed(0)
+torch.manual_seed(0)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed_all(0)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32
 #dtype = torch.float32
@@ -44,7 +52,7 @@ model = ProteinMPNN(
     hidden_dim=hidden_dim,
     num_encoder_layers=num_layers,
     num_decoder_layers=num_layers,
-    augment_eps=0.00,
+    augment_eps=0.2,
     k_neighbors=checkpoint['num_edges']
 )
 model.to(device)
@@ -86,30 +94,37 @@ batch_clones = [copy.deepcopy(protein) for i in range(BATCH_COPIES)]
 
 
 
-X, S, mask, lengths, chain_M, chain_encoding_all, chain_list_list, visible_list_list, masked_list_list, masked_chain_length_list_list, chain_M_pos, omit_AA_mask, residue_idx, dihedral_mask, tied_pos_list_of_lists_list, pssm_coef, pssm_bias, pssm_log_odds_all, bias_by_res_all, tied_beta = tied_featurize(batch_clones, device, None, None, None, None, None, None, ca_only=False)
+X, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = tied_featurize(batch_clones, device, None, None, None, None, None, None, ca_only=False)
 
 #wildtype_gb1="MQYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTE"
 seq = "LTDEELVTMSVRELNQHLRGLSKEEIIQLKQRRRTLKNRGY" # MAFG_MOUSE
-seq_tensor = torch.tensor([alphabet_dict[AA] for AA in seq], device=device)[None,:].repeat(X.shape[0], 1)
+seq_tensor = torch.tensor([alphabet_dict[AA] for AA in seq], device=device).unsqueeze(0)
 
-print(X)
-print(mask)
-print(chain_M)
-print(chain_M_pos)
-print(residue_idx)
-print(chain_encoding_all)
+
+print("X shape:", X.shape)
+print(X[0][0])
+print("seq_tensor shape:", seq_tensor.shape)
+
+
+
+
+
+residue_idx = torch.arange(seq_tensor.shape[1], device=device).unsqueeze(0)
+
+ones_tensor = torch.ones_like(seq_tensor, device=device)
 
 decoding_order = torch.arange(len(seq), device=device).unsqueeze(0)
 
-log_probs = model(X, seq_tensor, mask, chain_M*chain_M_pos, residue_idx, chain_encoding_all, None, use_input_decoding_order=True, decoding_order=decoding_order)
+
+log_probs = model(X, seq_tensor, ones_tensor, ones_tensor, residue_idx, ones_tensor, None, use_input_decoding_order=True, decoding_order=decoding_order)
 A_score = 0
 for i in range(len(seq_tensor[0])):
     A_score += log_probs[0,i,seq_tensor[0,i]]
 A_score /= len(seq_tensor[0])
+print(A_score.item()) # 1.6966581344604492
 
-
-loss, loss_av = loss_nll(seq_tensor, log_probs, mask)
-print(loss_av.item())
+loss, loss_av = loss_nll(seq_tensor, log_probs, ones_tensor)
+print(loss_av.item()) # 1.6966581344604492
 
 loss_av.backward()
 
