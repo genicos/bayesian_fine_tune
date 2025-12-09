@@ -1061,9 +1061,7 @@ class ProteinMPNN(nn.Module):
         E, E_idx = self.features(X, mask, residue_idx, chain_encoding_all)
         h_V = torch.zeros((E.shape[0], E.shape[1], E.shape[-1]), device=E.device)
         h_E = self.W_e(E)
-
-        print("E shape:", E.shape)
-        print(E[0][0])
+        
 
         # Encoder is unmasked self-attention
         mask_attend = gather_nodes(mask.unsqueeze(-1),  E_idx).squeeze(-1)
