@@ -18,7 +18,8 @@ def weighted_nll_loss(log_probs, targets, weights):
     loss = criterion(
         log_probs.contiguous().view(-1, log_probs.size(-1)), targets.contiguous().view(-1)
     ).view(targets.size())
-    
+    if torch.sum(weights) == 0:
+        return torch.sum(loss * weights)
     return torch.sum(loss * weights) / torch.sum(weights)
 
 
@@ -115,7 +116,7 @@ def weighted_fine_tuning_train(model, assay_indices, alpha=1, B=1, epochs=10, le
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
     
-    train_indices = torch.randperm(len(logged_input_seqs), generator=g)[:int(len(logged_input_seqs)*train_proportion)]
+    train_indices = torch.randperm(len(logged_input_seqs), generator=g)[:int(len(logged_input_seqs)*train_proportion)] #TODO make sure theres no leakage
     val_indices = torch.tensor([i for i in range(len(logged_input_seqs)) if i not in train_indices])
 
     best_validation_loss = float('inf')

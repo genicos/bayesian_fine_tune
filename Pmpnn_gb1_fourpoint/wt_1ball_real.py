@@ -6,8 +6,8 @@ parser = argparse.ArgumentParser(description="wt_1ball_real")
 
 parser.add_argument("--loss_type", type=str, required=False, default="bayesian")
 parser.add_argument("--alpha", type=float, required=False, default=1)
-parser.add_argument("--B", type=int, required=False, default=16)
-parser.add_argument("--epochs", type=int, required=False, default=100)
+parser.add_argument("--B", type=int, required=False, default=1)
+parser.add_argument("--epochs", type=int, required=False, default=0)
 parser.add_argument("--learning_rate", type=float, required=False, default=0.00001)
 parser.add_argument("--batch_size", type=int, required=False, default=16)
 parser.add_argument("--train_proportion", type=float, required=False, default=0.8)
@@ -62,13 +62,14 @@ model = get_peft_model(base_model, lora_cfg)
 
 
 
-wt_1_ball = hamming_1_ball()
-subset = wt_1_ball
+ 
+subset = hamming_2_ball()
 
 
-print("BASE_MODEL")
-generated_samples = generate_N_mutations(model, temp=1, N=1000)
-results = evaluate_samples(subset, generated_samples)
+if False:
+    print("BASE_MODEL")
+    generated_samples = generate_N_mutations(model, temp=1, N=1000)
+    results = evaluate_samples(subset, generated_samples)
 
 
 if args.loss_type == "bayesian" or args.loss_type == "reward_weighted_SFT":
