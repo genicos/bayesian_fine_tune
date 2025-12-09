@@ -5,6 +5,23 @@ from fine_tuning import *
 
 
 def test_decoding_order_sensitivity():
+    base_model.eval()
+    input_tensor = gb1_tokens.clone().unsqueeze(0).to(device)
+    residue_idx = torch.arange(input_tensor.shape[1], device=device).unsqueeze(0)
+
+    input_tensor[0,-1] = 0
+
+    ones_tensor = torch.ones_like(input_tensor, device=device)
+
+    decoding_order = torch.arange(input_tensor.shape[1], device=device).unsqueeze(0)
+    print(decoding_order[0])
+
+    torch.cuda.manual_seed_all(0)
+    with torch.autocast(device_type=device.type, dtype=torch.float32):
+        log_probs = base_model(structure_tensor, input_tensor, ones_tensor, ones_tensor, residue_idx, ones_tensor, None, use_input_decoding_order=True, decoding_order=decoding_order)
+    print(log_probs.shape)
+    print(log_probs[0,-1])
+
     input_tensor = gb1_tokens.unsqueeze(0).to(device)
     residue_idx = torch.arange(input_tensor.shape[1], device=device).unsqueeze(0)
 
@@ -121,3 +138,4 @@ if __name__ == "__main__":
     #gb1_test_1()
     #test_mutation_set()
     fine_tuning_test()
+    pass
