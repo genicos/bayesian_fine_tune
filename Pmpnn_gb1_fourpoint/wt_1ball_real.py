@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(description="wt_1ball_real")
 parser.add_argument("--loss_type", type=str, required=False, default="bayesian")
 parser.add_argument("--alpha", type=float, required=False, default=1)
 parser.add_argument("--B", type=int, required=False, default=1)
-parser.add_argument("--epochs", type=int, required=False, default=0)
+parser.add_argument("--epochs", type=int, required=False, default=2)
 parser.add_argument("--learning_rate", type=float, required=False, default=0.00001)
 parser.add_argument("--batch_size", type=int, required=False, default=16)
 parser.add_argument("--train_proportion", type=float, required=False, default=0.8)
@@ -20,13 +20,15 @@ parser.add_argument("--random_seed", type=int, required=False, default=0)
 parser.add_argument("--job_id", type=int, required=False, default=-1)
 parser.add_argument("--rescale_loss", action="store_true")
 parser.add_argument("--save_results", action="store_true")
+parser.add_argument("--result_file", type=str, required=False, default="")
 
 args = parser.parse_args()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu_id)
 
 
-if args.job_id != -1 and os.path.exists(f"results/results_{args.job_id}.pkl"):
+
+if args.save_results and ( (args.job_id != -1 and os.path.exists(f"results/results_{args.job_id}.pkl")) or (args.result_file != "" and os.path.exists(args.result_file))):
     print("Results already exist, skipping")
     exit()
 
@@ -85,6 +87,11 @@ if args.save_results:
         "results": results,
         "args": args.__dict__
     }
-    with open(f"results/results_{args.job_id}.pkl", "wb") as f:
+    if args.result_file != "":
+        result_file = args.result_file
+    else:
+        result_file = f"results/results_{args.job_id}.pkl"
+    
+    with open(result_file, "wb") as f:
         pickle.dump(save_object, f)
 

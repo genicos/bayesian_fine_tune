@@ -73,3 +73,16 @@ def hamming_2_ball(center_mutation_code=wt_mutation_code):
                     ball.add(index)
 
     return list(ball)
+
+
+
+def hamming_2_ball_low_pass(center_mutation_code=wt_mutation_code, cutoff=1):
+    subset = hamming_2_ball(center_mutation_code)
+    subset = [i for i in subset if assay_values[i] <= cutoff]
+    return subset
+
+
+def full_set_low_pass(cutoff=1):
+    subset = torch.arange(all_mutants.size(0))
+    subset = [i for i in subset if assay_values[i] <= cutoff]
+    return subset

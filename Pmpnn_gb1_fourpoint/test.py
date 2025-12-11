@@ -4,6 +4,10 @@ from mutation_sets import *
 from fine_tuning import *
 
 
+
+
+
+
 def test_decoding_order_sensitivity():
     base_model.eval()
     input_tensor = gb1_tokens.clone().unsqueeze(0).to(device)
@@ -88,6 +92,19 @@ def test_mutation_set():
         code = index_to_mutations[i]
         print(code)
 
+    set_3 = hamming_2_ball_low_pass()
+    print(len(set_3))
+    for i in set_3:
+        if assay_values[i] > 1:
+            print(index_to_mutations[i])
+            print("FAILED")
+    set_4 = full_set_low_pass()
+    print(len(set_4))
+    for i in set_4:
+        if assay_values[i] > 1:
+            print(index_to_mutations[i])
+            print("FAILED")
+
 def gb1_test_1():
 
     wt_code = []
@@ -136,6 +153,6 @@ def fine_tuning_test():
 if __name__ == "__main__":
     #test_decoding_order_sensitivity()
     #gb1_test_1()
-    #test_mutation_set()
-    fine_tuning_test()
+    test_mutation_set()
+    #fine_tuning_test()
     pass
