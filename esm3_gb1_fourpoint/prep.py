@@ -12,6 +12,8 @@ base_model = torch.load(
     map_location=device
 )
 
+HAS_BOS = True #has BOS token at the beginning of the sequence
+
 base_model.train()
 
 mask_id = base_model.tokenizers.sequence.mask_token_id

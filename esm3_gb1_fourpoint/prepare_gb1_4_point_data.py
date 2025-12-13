@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 
 wildtype_gb1="MQYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTE"
-wt_mutation_code = [17, 2, 5, 17]
+wt_mutation_code = [17, 2, 5, 17] #These are amino acid indices (not tokens)
 
 four_positions=[38,39,40,53]
 
@@ -47,7 +47,7 @@ if any(not os.path.exists(f) for f in ["data/all_mutants.pt", "data/assay_values
         assay_values[i] = mutation_key_to_assay[mutation]
 
         for j, position in enumerate(four_positions):
-            all_mutants[i, position + 1] = aa_to_token[mutation[j]]
+            all_mutants[i, position + HAS_BOS] = aa_to_token[mutation[j]]
             index_to_mutations[i][j] = aa_to_index[mutation[j]]
         
         mutations_to_index[aa_to_index[mutation[0]], aa_to_index[mutation[1]], aa_to_index[mutation[2]], aa_to_index[mutation[3]]] = i

@@ -28,8 +28,3 @@ def hamming_1_ball(center_mutation_code=wt_mutation_code):
     ball.append(mutations_to_index[center_mutation_code[0], center_mutation_code[1], center_mutation_code[2], center_mutation_code[3]])
     return ball
 
-
-
-
-
-

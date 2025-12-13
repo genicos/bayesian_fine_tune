@@ -12,6 +12,6 @@
 
 
 gpu_id=$1
-job_file="experiments/gen_jobs/exp_3/jobs/jobs_${gpu_id}.txt"
+job_file="experiments/gen_jobs/exp_4/jobs/jobs_${gpu_id}.txt"
 
-cat $job_file | parallel -j 1 {}
+cat $job_file | parallel -j 2 {}
